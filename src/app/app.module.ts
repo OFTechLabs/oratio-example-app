@@ -1,18 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterStateSerializer, StoreRouterConnectingModule, } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { CustomRouterStateSerializer } from './shared/utils';
+import { metaReducers, reducers } from './reducers';
 import { AppComponent } from './app.component';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    HttpModule,
+    StoreModule.forRoot(reducers, {metaReducers}),
+    StoreRouterConnectingModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([]),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+}
