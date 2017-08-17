@@ -18,6 +18,7 @@ import { PageOneComponent } from './components/page-one/page-one.component';
 import { PageTwoComponent } from './components/page-two/page-two.component';
 import { PageThreeComponent } from './components/page-three/page-three.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ChatComponent } from './components/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     PageOneComponent,
     PageTwoComponent,
     PageThreeComponent,
+    ChatComponent,
   ],
   imports: [
     AppRoutingModule,
