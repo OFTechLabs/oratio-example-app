@@ -14,9 +14,20 @@ import { metaReducers, reducers } from './reducers';
 import { AppComponent } from './app.component';
 
 import { environment } from '../environments/environment';
+import { PageOneComponent } from './components/page-one/page-one.component';
+import { PageTwoComponent } from './components/page-two/page-two.component';
+import { PageThreeComponent } from './components/page-three/page-three.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    PageOneComponent,
+    PageTwoComponent,
+    PageThreeComponent,
+  ],
   imports: [
+    AppRoutingModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,
