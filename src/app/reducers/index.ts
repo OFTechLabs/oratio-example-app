@@ -1,10 +1,11 @@
 import { ActionReducer, ActionReducerMap, MetaReducer, } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromRouter from '@ngrx/router-store';
+import { ChatReducer, ChatState } from '../components/chat/chat.reducer';
 
-
-export interface State {
+export interface RootState {
   routerReducer: fromRouter.RouterReducerState;
+  chatReducer: ChatState;
 }
 
 /**
@@ -12,13 +13,14 @@ export interface State {
  * These reducer functions are called with each dispatched action
  * and the current or initial state and return a new immutable state.
  */
-export const reducers: ActionReducerMap<State> = {
+export const reducers: ActionReducerMap<RootState> = {
   routerReducer: fromRouter.routerReducer,
+  chatReducer: ChatReducer
 };
 
 // console.log all actions
-export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
-  return function (state: State, action: any): State {
+export function logger(reducer: ActionReducer<RootState>): ActionReducer<RootState> {
+  return function (state: RootState, action: any): RootState {
     console.log('state', state);
     console.log('action', action);
 
@@ -31,6 +33,6 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * the root meta-reducer. To add more meta-reducers, provide an array of meta-reducers
  * that will be composed to form the root meta-reducer.
  */
-export const metaReducers: MetaReducer<State>[] = !environment.production
+export const metaReducers: MetaReducer<RootState>[] = !environment.production
   ? [logger]
   : [];

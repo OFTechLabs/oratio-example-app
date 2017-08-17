@@ -1,8 +1,7 @@
 <div class="chat-dialog">
-  <p class="bubble answer">Welcome at Oration, please ask your question below...</p>
-  <p class="bubble question">What is cool?</p>
-  <p class="bubble answer">Oratio is cool!</p>
-  <p class="bubble question">What is 1 + 1?</p>
-  <p class="bubble answer">1 + 1 = 2</p>
-  <input class="chat-input" />
+  <p class="bubble" ngClass="{{getBubbleClassname(chatBubble.type)}}" *ngFor="let chatBubble of chatBubbles$ | async">{{chatBubble.text}}</p>
+
+  <p class="loading" *ngIf="(loading$ | async) === true">Thinking...</p>
+
+  <input #box class="chat-input" (keyup.enter)="onEnter(box.value);box.value=''"/>
 </div>

@@ -19,6 +19,7 @@ import { PageTwoComponent } from './components/page-two/page-two.component';
 import { PageThreeComponent } from './components/page-three/page-three.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
+import { ChatEffects } from './components/chat/chat.effects';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { ChatComponent } from './components/chat/chat.component';
     StoreModule.forRoot(reducers, {metaReducers}),
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([ChatEffects]),
   ],
   providers: [
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},

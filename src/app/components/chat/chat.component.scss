@@ -21,6 +21,8 @@
 }
 
 .chat-input {
+  position: fixed;
+  bottom: 10px;
   width: 280px;
   border: 1px solid #ccc;
   padding:10px;
