@@ -45,7 +45,7 @@ export class NavigationNeuron implements IHiveMindNeuron {
 
             resolve(new SimpleResponse('Navigated to ' + requestedRoute, [], 0.5));
           } else {
-            resolve(new SimpleResponse('Could not find the page' + requestedRoute, [], 0.5));
+            resolve(new SimpleResponse('Could not find the page ' + requestedRoute, [], 0.5));
           }
         } else {
           resolve(response);

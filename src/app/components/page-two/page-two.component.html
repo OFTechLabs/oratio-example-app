@@ -3,7 +3,13 @@
   <md-card-content>
     <p>You can do interesting things here...</p>
 
-    <md-checkbox [checked]="checked$ | async" (change)="toggleChecked()">{{(checked$ | async) ? 'Checked': 'Unchecked'}}</md-checkbox>
+    <md-checkbox [checked]="checked$ | async" (change)="toggleChecked()">Supercool checkbox</md-checkbox>
 
+    <section class="section">
+      <md-chip-list>
+        <md-chip>{{(checked$ | async) ? 'Checked': 'Unchecked'}}</md-chip>
+      </md-chip-list>
+    </section>
   </md-card-content>
 </md-card>
+
