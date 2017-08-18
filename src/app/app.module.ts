@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatEffects } from './components/chat/chat.effects';
 import { AppMaterialModule } from './app-material.module';
-import { AppHiveMind } from './oratio/HiveMindFactory';
+import { AppHiveMind } from './oratio/AppHiveMind';
 import { RoutingEffects } from './routing/routing.effects';
 import { NavigationNeuron } from './oratio/general/NavigationNeuron';
 

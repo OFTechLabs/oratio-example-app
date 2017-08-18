@@ -11,7 +11,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/skip';
 import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/mergeMap';
-import { AppHiveMind } from '../../oratio/HiveMindFactory';
+import { AppHiveMind } from '../../oratio/AppHiveMind';
 import { RootState } from '../../reducers/index';
 import { I18nService } from '../../i18n/I18nService';
 import { UnderstoodResponse } from '@oratio/oratio';
