@@ -1,7 +1,9 @@
-<div class="chat-dialog">
+<div #scrollMe class="chat-dialog">
   <p class="bubble" ngClass="{{getBubbleClassname(chatBubble.type)}}" *ngFor="let chatBubble of chatBubbles$ | async">{{chatBubble.text}}</p>
 
   <md-progress-bar *ngIf="(loading$ | async) === true" class="example-margin" color="primary" mode="indeterminate"></md-progress-bar>
 
+  <div class="filler"></div>
   <input #box class="chat-input" (keyup.enter)="onEnter(box.value);box.value=''"/>
+
 </div>

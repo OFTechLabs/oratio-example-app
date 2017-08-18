@@ -1,5 +1,5 @@
 <md-sidenav-container>
-  <md-sidenav mode="side" opened="true">
+  <md-sidenav #sidenavleft mode="side" opened="true">
     <md-toolbar color="primary"></md-toolbar>
 
     <md-nav-list>
@@ -24,8 +24,12 @@
     </div>
   </md-toolbar>
 
-  <section class="main-section mat-typography">
+  <md-sidenav #sidenavright mode="side" opened="true" align="end">
+    <md-toolbar color="primary"></md-toolbar>
     <app-chat></app-chat>
+  </md-sidenav>
+
+  <section class="main-section mat-typography">
     <router-outlet></router-outlet>
   </section>
 </md-sidenav-container>
