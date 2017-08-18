@@ -27,7 +27,7 @@
     "@ngrx/router-store": "^4.0.3",
     "@ngrx/store": "^4.0.3",
     "@ngrx/store-devtools": "^4.0.0",
-    "@oratio/oratio": "^0.0.1",
+    "@oratio/oratio": "^0.0.2",
     "core-js": "^2.4.1",
     "reselect": "^3.0.1",
     "rxjs": "^5.4.2",
