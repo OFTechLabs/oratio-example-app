@@ -21,6 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatEffects } from './components/chat/chat.effects';
 import { AppMaterialModule } from './app-material.module';
+import { AppHiveMind } from './oratio/HiveMindFactory';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AppMaterialModule } from './app-material.module';
   ],
   providers: [
     {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
+    AppHiveMind,
   ],
   bootstrap: [AppComponent],
 })
