@@ -15,6 +15,7 @@ import { Injectable } from '@angular/core';
 import { RootState } from '../../reducers/index';
 import { Store } from '@ngrx/store';
 import { Go } from '../../routing/routing.actions';
+import { routes } from '../../app-routing.module';
 
 @Injectable()
 export class NavigationNeuron implements IHiveMindNeuron {
@@ -36,11 +37,16 @@ export class NavigationNeuron implements IHiveMindNeuron {
             sequences.sequences.map((sequence: Sequence) => sequence.sequence.split(' ')),
           );
 
-          const query: string = parser.parse(words).reduce((w1, w2) => w1 + ' ' + w2);
+          const requestedRoute: string = parser.parse(words).reduce((w1, w2) => w1 + ' ' + w2);
+          const foundRoute: boolean = routes.filter(route => route.path === requestedRoute).length === 1;
 
-          this.store.dispatch(new Go({path: ['/' + query]}));
+          if (foundRoute) {
+            this.store.dispatch(new Go({path: ['/' + requestedRoute]}));
 
-          resolve(new SimpleResponse('Navigated to ' + query, [], 0.5));
+            resolve(new SimpleResponse('Navigated to ' + requestedRoute, [], 0.5));
+          } else {
+            resolve(new SimpleResponse('Could not find the page' + requestedRoute, [], 0.5));
+          }
         } else {
           resolve(response);
         }

@@ -6,7 +6,7 @@ import { PageThreeComponent } from './components/page-three/page-three.component
 import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomRouterStateSerializer } from './shared/utils';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', redirectTo: '/page-one', pathMatch: 'full'},
   {path: 'page-one', component: PageOneComponent},
   {path: 'page-two', component: PageTwoComponent},

@@ -22,6 +22,9 @@ import { AppHiveMind } from './oratio/HiveMindFactory';
 import { RoutingEffects } from './routing/routing.effects';
 import { NavigationNeuron } from './oratio/general/NavigationNeuron';
 
+import 'hammerjs';
+import { ToggleCheckboxNeuron } from './oratio/general/ToggleCheckboxNeuron';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,7 @@ import { NavigationNeuron } from './oratio/general/NavigationNeuron';
   providers: [
     AppHiveMind,
     NavigationNeuron,
+    ToggleCheckboxNeuron,
   ],
   bootstrap: [AppComponent],
 })
