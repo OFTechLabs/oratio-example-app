@@ -17,7 +17,6 @@ import { RootState } from '../../reducers/index';
 @Injectable()
 export class ChatEffects {
 
-  // @Todo: We should really hook up Oratio here since 42 might not be the answer to every question.
   @Effect()
   downloadCheckReport$: Observable<Action> = this.actions$
     .ofType<chat.AskQuestionAction>(chat.ASK_QUESTION)
