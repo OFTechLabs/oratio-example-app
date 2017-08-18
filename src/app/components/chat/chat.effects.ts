@@ -27,6 +27,8 @@ export class ChatEffects {
       return this.hiveMind.mind.process(question, 'en', this.store)
         .then(answer => {
           if (answer instanceof UnderstoodResponse) {
+            answer.action.call(answer.context, null);
+
             return new ChatGiveAnswerAction(this.i18nService.translate(answer.response(), answer.params));
           }
 

@@ -22,6 +22,7 @@ import { AppHiveMind } from './oratio/HiveMindFactory';
 import { RoutingEffects } from './routing/routing.effects';
 import { NavigationNeuron } from './oratio/general/NavigationNeuron';
 import { I18nService } from './i18n/I18nService';
+import { ClearNeuron } from './oratio/general/ClearNeuron';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { I18nService } from './i18n/I18nService';
     AppHiveMind,
     NavigationNeuron,
     I18nService,
+    ClearNeuron,
   ],
   bootstrap: [AppComponent],
 })
