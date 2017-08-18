@@ -1,4 +1,6 @@
 <div #scrollMe class="chat-dialog">
+  <p class="bubble" ngClass="answer">Welcome, I am Oratio! <br/>You can ask me questions or tell me to do things. If you are unsure what I am capable of, please type help.</p>
+
   <p class="bubble" ngClass="{{getBubbleClassname(chatBubble.type)}}" *ngFor="let chatBubble of chatBubbles$ | async">{{chatBubble.text}}</p>
 
   <md-progress-bar *ngIf="(loading$ | async) === true" class="example-margin" color="primary" mode="indeterminate"></md-progress-bar>
