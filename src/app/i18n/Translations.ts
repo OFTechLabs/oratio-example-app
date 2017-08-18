@@ -6,4 +6,5 @@ export const oratioTranslations = {
   'oratio.math.division': 'Division: {0}',
   'oratio.math.multiplication': 'Multiplication: {0}',
   'oratio.math.subtraction': 'Subtraction: {0}',
+  'oratio.did.not.understand': 'I did not understand this input... please fix it, you are a developer after all.'
 }
