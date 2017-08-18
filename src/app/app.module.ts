@@ -20,6 +20,7 @@ import { ChatEffects } from './components/chat/chat.effects';
 import { AppMaterialModule } from './app-material.module';
 import { AppHiveMind } from './oratio/HiveMindFactory';
 import { RoutingEffects } from './routing/routing.effects';
+import { NavigationNeuron } from './oratio/general/NavigationNeuron';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { RoutingEffects } from './routing/routing.effects';
   ],
   providers: [
     AppHiveMind,
+    NavigationNeuron,
   ],
   bootstrap: [AppComponent],
 })
