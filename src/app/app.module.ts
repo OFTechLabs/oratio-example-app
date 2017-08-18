@@ -20,6 +20,7 @@ import { PageThreeComponent } from './components/page-three/page-three.component
 import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatEffects } from './components/chat/chat.effects';
+import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ChatEffects } from './components/chat/chat.effects';
   ],
   imports: [
     AppRoutingModule,
+    AppMaterialModule,
     CommonModule,
     BrowserModule,
     BrowserAnimationsModule,

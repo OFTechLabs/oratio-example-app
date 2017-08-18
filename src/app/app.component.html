@@ -1,15 +1,31 @@
-<nav>
-  <ul>
-    <li>
-      <a routerLink="/page-one" routerLinkActive="active-link">Page One</a>
-    </li>
-    <li>
-      <a routerLink="/page-two" routerLinkActive="active-link">Page Two</a>
-    </li>
-    <li>
-      <a routerLink="/page-three" routerLinkActive="active-link">Page Three</a>
-    </li>
-  </ul>
-</nav>
-<app-chat></app-chat>
-<router-outlet></router-outlet>
+<md-sidenav-container>
+  <md-sidenav mode="side" opened="true">
+    <md-toolbar color="primary"></md-toolbar>
+
+    <md-nav-list>
+      <a md-list-item routerLink="/page-one" routerLinkActive="active-link">
+        <md-icon md-list-icon>beenhere</md-icon>
+        <span>Page One</span>
+      </a>
+      <a md-list-item routerLink="/page-two" routerLinkActive="active-link">
+        <md-icon md-list-icon>local_drink</md-icon>
+        <span>Page Two</span>
+      </a>
+      <a md-list-item routerLink="/page-three" routerLinkActive="active-link">
+        <md-icon md-list-icon>adb</md-icon>
+        <span>Page Three</span>
+      </a>
+    </md-nav-list>
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+      <span id="title">{{ title }}</span>
+    </div>
+  </md-toolbar>
+
+  <section class="main-section mat-typography">
+    <app-chat></app-chat>
+    <router-outlet></router-outlet>
+  </section>
+</md-sidenav-container>
