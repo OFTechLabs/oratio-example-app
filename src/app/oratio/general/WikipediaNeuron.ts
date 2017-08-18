@@ -39,10 +39,9 @@ export class WikipediaNeuron implements IHiveMindNeuron {
             wiki().page(data.results[0]).then(page => {
               page.summary().then(summary => {
                 resolve(new SimpleResponse('oratio.modules.knowledge.wikipedia', [summary], 0.5));
-              });
-            });
-
-          });
+              }).catch(() => resolve(new Silence()));
+            }).catch(() => resolve(new Silence()));
+          }).catch(() => resolve(new Silence()));
         } else {
           resolve(response);
         }
