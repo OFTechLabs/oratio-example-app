@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { RootState } from '../../reducers/index';
 import { ChatBubble, ChatType, getChatBubbles, getLoading } from './chat.reducer';
 import { Observable } from 'rxjs/Observable';
-import { AskQuestionAction } from './chat.action';
+import { AskQuestionAction } from './chat.actions';
 
 @Component({
   selector: 'app-chat',

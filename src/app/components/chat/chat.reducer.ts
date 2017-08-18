@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { ASK_QUESTION, ChatActions, GIVE_ANSWER } from './chat.action';
+import { ASK_QUESTION, ChatActions, GIVE_ANSWER } from './chat.actions';
 import { RootState } from '../../reducers/index';
 
 export enum ChatType {

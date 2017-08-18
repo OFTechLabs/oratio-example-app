@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import * as chat from './chat.action';
-import { ChatGiveAnswerAction } from './chat.action';
+import * as chat from './chat.actions';
+import { ChatGiveAnswerAction } from './chat.actions';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/switchMap';
@@ -22,11 +22,11 @@ export class ChatEffects {
     .ofType<chat.AskQuestionAction>(chat.ASK_QUESTION)
     .map(action => action.payload)
     .mergeMap((question: string) => {
-      return this.hiveMind.mind.process(question, 'en', this.rootState)
+      return this.hiveMind.mind.process(question, 'en', this.store)
         .then(answer => new ChatGiveAnswerAction(answer.response()))
         .catch(err => new ChatGiveAnswerAction('Error!!'));
     });
 
-  constructor(private actions$: Actions, private hiveMind: AppHiveMind, private rootState: Store<RootState>) {
+  constructor(private actions$: Actions, private hiveMind: AppHiveMind, private store: Store<RootState>) {
   }
 }
