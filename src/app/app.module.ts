@@ -22,8 +22,11 @@ import { AppHiveMind } from './oratio/HiveMindFactory';
 import { RoutingEffects } from './routing/routing.effects';
 import { NavigationNeuron } from './oratio/general/NavigationNeuron';
 
-import 'hammerjs';
 import { ToggleCheckboxNeuron } from './oratio/general/ToggleCheckboxNeuron';
+import { I18nService } from './i18n/I18nService';
+import { ClearNeuron } from './oratio/general/ClearNeuron';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,8 @@ import { ToggleCheckboxNeuron } from './oratio/general/ToggleCheckboxNeuron';
     AppHiveMind,
     NavigationNeuron,
     ToggleCheckboxNeuron,
+    I18nService,
+    ClearNeuron,
   ],
   bootstrap: [AppComponent],
 })

@@ -13,6 +13,8 @@ import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/mergeMap';
 import { AppHiveMind } from '../../oratio/HiveMindFactory';
 import { RootState } from '../../reducers/index';
+import { I18nService } from '../../i18n/I18nService';
+import { UnderstoodResponse } from '@oratio/oratio';
 
 @Injectable()
 export class ChatEffects {
@@ -23,10 +25,18 @@ export class ChatEffects {
     .map(action => action.payload)
     .mergeMap((question: string) => {
       return this.hiveMind.mind.process(question, 'en', this.store)
-        .then(answer => new ChatGiveAnswerAction(answer.response()))
+        .then(answer => {
+          if (answer instanceof UnderstoodResponse) {
+            answer.action.call(answer.context, null);
+
+            return new ChatGiveAnswerAction(this.i18nService.translate(answer.response(), answer.params));
+          }
+
+          return new ChatGiveAnswerAction(this.i18nService.translate(answer.response()));
+        })
         .catch(err => new ChatGiveAnswerAction('Error!!'));
     });
 
-  constructor(private actions$: Actions, private hiveMind: AppHiveMind, private store: Store<RootState>) {
+  constructor(private actions$: Actions, private hiveMind: AppHiveMind, private store: Store<RootState>, private i18nService: I18nService) {
   }
 }
