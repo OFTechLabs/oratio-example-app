@@ -1,3 +1,15 @@
-<p>
-  page-two works!
-</p>
+<md-card>
+  <md-card-title>Page two!</md-card-title>
+  <md-card-content>
+    <p>You can do interesting things here...</p>
+
+    <md-checkbox [checked]="checked$ | async" (change)="toggleChecked()">Supercool checkbox</md-checkbox>
+
+    <section class="section">
+      <md-chip-list>
+        <md-chip>{{(checked$ | async) ? 'Checked': 'Unchecked'}}</md-chip>
+      </md-chip-list>
+    </section>
+  </md-card-content>
+</md-card>
+

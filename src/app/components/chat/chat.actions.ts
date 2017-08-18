@@ -2,6 +2,7 @@ import { Action } from '@ngrx/store';
 
 export const ASK_QUESTION = '[Chat] Ask Question';
 export const GIVE_ANSWER = '[Chat] Give Answer';
+export const CLEAR = '[Chat] Clear';
 
 export class AskQuestionAction implements Action {
   readonly type = ASK_QUESTION;
@@ -17,6 +18,14 @@ export class ChatGiveAnswerAction implements Action {
   }
 }
 
+export class ClearAction implements Action {
+  readonly type = CLEAR;
+
+  constructor() {
+  }
+}
+
 export type ChatActions
   = AskQuestionAction
-  | ChatGiveAnswerAction;
+  | ChatGiveAnswerAction
+  | ClearAction;

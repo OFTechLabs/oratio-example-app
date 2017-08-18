@@ -6,10 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { RouterStateSerializer, StoreRouterConnectingModule, } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
-import { CustomRouterStateSerializer } from './shared/utils';
 import { metaReducers, reducers } from './reducers';
 import { AppComponent } from './app.component';
 
@@ -21,6 +18,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { ChatComponent } from './components/chat/chat.component';
 import { ChatEffects } from './components/chat/chat.effects';
 import { AppMaterialModule } from './app-material.module';
+import { AppHiveMind } from './oratio/HiveMindFactory';
+import { RoutingEffects } from './routing/routing.effects';
+import { NavigationNeuron } from './oratio/general/NavigationNeuron';
+
+import { ToggleCheckboxNeuron } from './oratio/general/ToggleCheckboxNeuron';
+import { I18nService } from './i18n/I18nService';
+import { ClearNeuron } from './oratio/general/ClearNeuron';
+
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -38,12 +44,15 @@ import { AppMaterialModule } from './app-material.module';
     BrowserAnimationsModule,
     HttpModule,
     StoreModule.forRoot(reducers, {metaReducers}),
-    StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([ChatEffects]),
+    EffectsModule.forRoot([ChatEffects, RoutingEffects]),
   ],
   providers: [
-    {provide: RouterStateSerializer, useClass: CustomRouterStateSerializer},
+    AppHiveMind,
+    NavigationNeuron,
+    ToggleCheckboxNeuron,
+    I18nService,
+    ClearNeuron,
   ],
   bootstrap: [AppComponent],
 })
