@@ -2,10 +2,12 @@ import { ActionReducer, ActionReducerMap, MetaReducer, } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromRouter from '@ngrx/router-store';
 import { ChatReducer, ChatState } from '../components/chat/chat.reducer';
+import { PageTwoReducer, PageTwoState } from '../components/page-two/page-two.reducer';
 
 export interface RootState {
   routerReducer: fromRouter.RouterReducerState;
   chatReducer: ChatState;
+  pageTwoReducer: PageTwoState;
 }
 
 /**
@@ -15,7 +17,8 @@ export interface RootState {
  */
 export const reducers: ActionReducerMap<RootState> = {
   routerReducer: fromRouter.routerReducer,
-  chatReducer: ChatReducer
+  chatReducer: ChatReducer,
+  pageTwoReducer: PageTwoReducer
 };
 
 // console.log all actions

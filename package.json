@@ -1,6 +1,6 @@
 {
   "name": "@oratio/example-app",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -13,11 +13,13 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.3.5",
+    "@angular/cdk": "^2.0.0-beta.8",
     "@angular/common": "^4.3.5",
     "@angular/compiler": "^4.3.5",
     "@angular/core": "^4.3.5",
     "@angular/forms": "^4.3.5",
     "@angular/http": "^4.3.5",
+    "@angular/material": "^2.0.0-beta.8",
     "@angular/platform-browser": "^4.3.5",
     "@angular/platform-browser-dynamic": "^4.3.5",
     "@angular/router": "^4.3.5",
@@ -25,9 +27,12 @@
     "@ngrx/router-store": "^4.0.3",
     "@ngrx/store": "^4.0.3",
     "@ngrx/store-devtools": "^4.0.0",
+    "@oratio/oratio": "^0.0.5",
     "core-js": "^2.4.1",
+    "hammerjs": "^2.0.8",
     "reselect": "^3.0.1",
     "rxjs": "^5.4.2",
+    "wikijs": "^4.0.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

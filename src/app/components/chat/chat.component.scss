@@ -1,36 +1,37 @@
 .chat-dialog {
-  background: #ffffff;
-  border-left: 2px solid #ccc;
   padding: 10px;
   position: fixed;
-  top: 0;
+  top: 64px;
   right: 0;
   width: 300px;
   height: 100%;
   overflow: auto;
+  margin-bottom:100px;
 }
 
 .chat-input {
   position: fixed;
   bottom: 10px;
   width: 280px;
-  border: 1px solid #ccc;
+  border: 1px solid #3f51b5;
   padding:10px;
 }
 
 .bubble {
-  border: 1px solid #333333;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 1px 1px 4px #aaaaaa;
+  border-radius: 10px;
+  padding: 8px 12px;
 }
 
 .question {
   margin-left: 30px;
-  background-color: khaki;
+  background-color: #e0e0e0;
 }
 
 .answer {
   margin-right: 30px;
-  background-color: burlywood;
+  background-color: lighten(#3f51b5, 40%);
+}
+
+.filler {
+  height: 125px;
 }

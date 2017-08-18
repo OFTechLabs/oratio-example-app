@@ -5,3 +5,22 @@ a {
 .active-link {
   font-weight: bold;
 }
+
+
+.main-section {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.mat-nav-list .mat-list-item {
+  color:#333;
+}
+
+.mat-nav-list .mat-list-item.active-link {
+  background: rgba(0,0,0,.04);
+}
+
+.mat-sidenav-end {
+  width: 322px;
+}

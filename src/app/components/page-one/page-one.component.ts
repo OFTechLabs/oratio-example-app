@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RootState } from '../../reducers/index';
+import { Store } from '@ngrx/store';
+import { Go } from '../../routing/routing.actions';
 
 @Component({
   selector: 'app-page-one',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageOneComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<RootState>) {
+  }
 
   ngOnInit() {
+  }
+
+  goToPageThree() {
+    this.store.dispatch(new Go({path: ['/page-three']}));
   }
 
 }

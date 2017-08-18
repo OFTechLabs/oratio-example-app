@@ -1,10 +1,11 @@
 import { createSelector } from 'reselect';
-import { ASK_QUESTION, ChatActions, GIVE_ANSWER } from './chat.action';
+import { ASK_QUESTION, ChatActions, CLEAR, GIVE_ANSWER } from './chat.actions';
 import { RootState } from '../../reducers/index';
 
 export enum ChatType {
   QUESTION,
-  ANSWER
+  ANSWER,
+  CLEAR
 }
 
 export interface ChatBubble {
@@ -36,10 +37,20 @@ export function ChatReducer(state: ChatState = initialState,
     }
     case GIVE_ANSWER: {
       const answer: string = action.payload;
-      const chatBubble: ChatBubble = {type: ChatType.ANSWER, text: answer};
+      if (answer.length > 0) {
+        const chatBubble: ChatBubble = {type: ChatType.ANSWER, text: answer};
+        return Object.assign({}, state, {
+          loading: false,
+          chatBubbles: [...state.chatBubbles, chatBubble]
+        });
+      };
+
+      return state;
+    }
+    case CLEAR: {
       return Object.assign({}, state, {
         loading: false,
-        chatBubbles: [...state.chatBubbles, chatBubble]
+        chatBubbles: []
       });
     }
     default: {
