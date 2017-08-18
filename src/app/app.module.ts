@@ -21,6 +21,7 @@ import { AppMaterialModule } from './app-material.module';
 import { AppHiveMind } from './oratio/HiveMindFactory';
 import { RoutingEffects } from './routing/routing.effects';
 import { NavigationNeuron } from './oratio/general/NavigationNeuron';
+import { I18nService } from './i18n/I18nService';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NavigationNeuron } from './oratio/general/NavigationNeuron';
   providers: [
     AppHiveMind,
     NavigationNeuron,
+    I18nService,
   ],
   bootstrap: [AppComponent],
 })
