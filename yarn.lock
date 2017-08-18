@@ -191,9 +191,9 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
-"@oratio/oratio@^0.0.4":
-  version "0.0.4"
-  resolved "http://rdnexus1.ortec.finance:8081/nexus/repository/npm-all/@oratio/oratio/-/oratio-0.0.4.tgz#b472adafcbca0af1f182e04744255c287951f984"
+"@oratio/oratio@^0.0.5":
+  version "0.0.5"
+  resolved "http://rdnexus1.ortec.finance:8081/nexus/repository/npm-all/@oratio/oratio/-/oratio-0.0.5.tgz#6310dcd03c4c02f4798d1efd4ca7e29522811f84"
   dependencies:
     mathjs "^3.16.1"
 

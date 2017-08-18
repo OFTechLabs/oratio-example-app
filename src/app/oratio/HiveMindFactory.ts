@@ -2,6 +2,7 @@ import { HiveMindBuilder, IHiveMind } from '@oratio/oratio';
 import { Injectable } from '@angular/core';
 import { HelpNeuron } from './general/HelpNeuron';
 import { WikipediaNeuron } from './general/WikipediaNeuron';
+import { EasterEggNeuron } from './general/EasterEggNeuron';
 
 @Injectable()
 export class AppHiveMind {
@@ -13,7 +14,7 @@ export class AppHiveMind {
       .registerCoreModules()
       .registerMathModules()
       .registerMathJsModules()
-      .register([new HelpNeuron(), new WikipediaNeuron()])
+      .register([new HelpNeuron(), new WikipediaNeuron(), new EasterEggNeuron()])
       .build();
   }
 

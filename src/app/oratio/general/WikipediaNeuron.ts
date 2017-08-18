@@ -2,7 +2,7 @@ import {
   IHiveMindNeuron,
   INeuronResponse,
   LocalizedWordsForLocaleFactory,
-  MultipleSequenceNeuron,
+  LocalizedWordsMatcherNeuron,
   RequestContext,
   Sequence,
   SequenceParser,
@@ -16,25 +16,15 @@ import wiki from 'wikijs';
 export class WikipediaNeuron implements IHiveMindNeuron {
 
   process(words: string[], locale: string, context: RequestContext): Promise<INeuronResponse> {
-    let localizedKnownWords = LocalizedWordsForLocaleFactory.createMain(knownWords, locale).words;
-    if (context.hasPreviousInput() && context.previousInput.neuronHandled instanceof WikipediaNeuron) {
-      const continuations: string[] = LocalizedWordsForLocaleFactory.createContinuation(knownWords, locale).words;
-      localizedKnownWords = localizedKnownWords.concat(continuations);
-    }
-
-    const sequences = SequenceParser.parse(localizedKnownWords);
-    const initialResponsePromise: Promise<INeuronResponse> = (new MultipleSequenceNeuron(
-      sequences.singleWord.map((sequence: Sequence) => sequence.withoutSpaces),
-      sequences.twoWords.map((sequence: Sequence) => sequence.withoutSpaces),
-      sequences.threeWords.map((sequence: Sequence) => sequence.withoutSpaces),
-      [],
-      'oratio.modules.knowledge.wikipedia'))
+    const initialResponsePromise = new LocalizedWordsMatcherNeuron(knownWords, 'oratio.modules.knowledge.wikipedia')
       .process(words, locale, context);
 
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
       initialResponsePromise.then((response: INeuronResponse) => {
         if (response.hasAnswer()) {
 
+          const localizedKnownWords = LocalizedWordsForLocaleFactory.createMain(knownWords, locale).words;
+          const sequences = SequenceParser.parse(localizedKnownWords);
           const parser = new WordAfterSequenceParser(
             sequences.sequences.map((sequence: Sequence) => sequence.sequence.split(' ')),
           );
