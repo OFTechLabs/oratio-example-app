@@ -5,7 +5,7 @@ import {
   LocalizedWordsMatcherNeuron,
   RequestContext,
   Sequence,
-  SequenceParser,
+  SequenceParser, Sequences,
   Silence,
   SimpleResponse,
   WordAfterSequenceParser,
@@ -23,8 +23,8 @@ export class WikipediaNeuron implements IHiveMindNeuron {
       initialResponsePromise.then((response: INeuronResponse) => {
         if (response.hasAnswer()) {
 
-          const localizedKnownWords = LocalizedWordsForLocaleFactory.createMain(knownWords, locale).words;
-          const sequences = SequenceParser.parse(localizedKnownWords);
+          const localizedKnownWords: string[] = LocalizedWordsForLocaleFactory.createMain(knownWords, locale);
+          const sequences: Sequences = SequenceParser.parse(localizedKnownWords);
           const parser = new WordAfterSequenceParser(
             sequences.sequences.map((sequence: Sequence) => sequence.sequence.split(' ')),
           );
