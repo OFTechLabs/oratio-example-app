@@ -191,9 +191,9 @@
     magic-string "^0.22.3"
     source-map "^0.5.6"
 
-"@oratio/oratio@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@oratio/oratio/-/oratio-0.0.8.tgz#a70f450e0193d6b4a163c3e81798f881f68aec22"
+"@oratio/oratio@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@oratio/oratio/-/oratio-0.0.9.tgz#863c428e0a6ce41e5149ea18103123f15add82f4"
 
 "@types/jasmine@*", "@types/jasmine@~2.5.53":
   version "2.5.53"
