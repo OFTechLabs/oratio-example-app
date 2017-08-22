@@ -1,4 +1,4 @@
-import { HiveMindBuilder, IHiveMind } from '@oratio/oratio';
+import { CoreHiveMindModule, HiveMindBuilder, IHiveMind, MathHiveMindModule } from '@oratio/oratio';
 import { Injectable } from '@angular/core';
 import { HelpNeuron } from './general/HelpNeuron';
 import { WikipediaNeuron } from './general/WikipediaNeuron';
@@ -14,10 +14,16 @@ export class AppHiveMind {
 
   constructor(private navigationNeuron: NavigationNeuron, private toggleCheckboxNeuron: ToggleCheckboxNeuron, clearNeuron: ClearNeuron) {
     this._mind = HiveMindBuilder.createEmpty()
-      .registerCoreModules()
-      .registerMathModules()
-      .registerMathJsModules()
-      .register([new HelpNeuron(), new WikipediaNeuron(), new EasterEggNeuron(), navigationNeuron, toggleCheckboxNeuron, clearNeuron])
+      .registerModule(CoreHiveMindModule.CORE_HIVE_MIND_MODULE)
+      .registerModule(MathHiveMindModule.MATH_HIVE_MIND_MODULE)
+      .registerNeurons([
+        new HelpNeuron(),
+        new WikipediaNeuron(),
+        new EasterEggNeuron(),
+        navigationNeuron,
+        toggleCheckboxNeuron,
+        clearNeuron
+      ])
       .build();
   }
 
