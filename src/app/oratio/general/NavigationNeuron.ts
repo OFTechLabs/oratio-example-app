@@ -31,7 +31,7 @@ export class NavigationNeuron implements IHiveMindNeuron {
       initialResponsePromise.then((response: INeuronResponse) => {
         if (response.hasAnswer()) {
 
-          const localizedKnownWords: string[] = LocalizedWordsForLocaleFactory.createMain(knownWords, locale).words;
+          const localizedKnownWords: string[] = LocalizedWordsForLocaleFactory.createMain(knownWords, locale);
           const sequences: Sequences = SequenceParser.parse(localizedKnownWords);
           const parser: WordAfterSequenceParser = new WordAfterSequenceParser(
             sequences.sequences.map((sequence: Sequence) => sequence.sequence.split(' ')),
