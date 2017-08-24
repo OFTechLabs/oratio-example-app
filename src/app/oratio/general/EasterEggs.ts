@@ -33,4 +33,4 @@ export const easterEggs: EasterEgg[]  = [
     input: 'do you feel lucky',
     output: 'I do, not lucky enough to challenge Clint, but still.'
   },
-]
+];

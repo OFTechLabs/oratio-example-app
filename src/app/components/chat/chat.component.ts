@@ -10,7 +10,7 @@ import { AskQuestionAction } from './chat.actions';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit, AfterViewChecked  {
+export class ChatComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   chatBubbles$: Observable<ChatBubble[]>;
@@ -42,7 +42,8 @@ export class ChatComponent implements OnInit, AfterViewChecked  {
   scrollToBottom(): void {
     try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }
+    } catch (err) {
+    }
   }
 
 }
