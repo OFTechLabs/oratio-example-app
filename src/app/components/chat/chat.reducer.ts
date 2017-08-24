@@ -43,7 +43,7 @@ export function ChatReducer(state: ChatState = initialState,
           loading: false,
           chatBubbles: [...state.chatBubbles, chatBubble]
         });
-      };
+      }
 
       return state;
     }

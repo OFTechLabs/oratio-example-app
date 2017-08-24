@@ -5,7 +5,7 @@ export class InputOutputMatcher {
   public static match(input: string[], toMatchTo: { input: string, output: string }[]): { certainty: number, output: string } {
     let possibleMatch = {certainty: 0.0, output: ''};
 
-    for (let toMatch of toMatchTo) {
+    for (const toMatch of toMatchTo) {
       const result = InputOutputMatcher.processSequence(input, toMatch);
 
       if (result.certainty > possibleMatch.certainty) {
