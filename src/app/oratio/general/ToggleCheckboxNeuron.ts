@@ -1,4 +1,7 @@
-import { IHiveMindNeuron, INeuronResponse, LocalizedWordsMatcherNeuron, RequestContext, SimpleResponse, } from '@oratio/oratio';
+import {
+  IHiveMindNeuron, INeuronResponse, LocalizedWordsMatcherNeuron, RequestContext, SimpleResponse,
+  UserInput,
+} from '@oratio/oratio';
 import { knownWords } from './ToggleCheckbox.words';
 import { Injectable } from '@angular/core';
 import { RootState } from '../../reducers/index';
@@ -11,9 +14,9 @@ export class ToggleCheckboxNeuron implements IHiveMindNeuron {
   constructor(private store: Store<RootState>) {
   }
 
-  process(words: string[], locale: string, context: RequestContext): Promise<INeuronResponse> {
+  process(input: UserInput, context: RequestContext): Promise<INeuronResponse> {
     const initialResponsePromise = new LocalizedWordsMatcherNeuron(knownWords, 'oratio.modules.togglecheckbox')
-      .process(words, locale, context);
+      .process(input, context);
 
     return new Promise(resolve => {
       initialResponsePromise.then((response: INeuronResponse) => {

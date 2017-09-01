@@ -1,10 +1,10 @@
 import {
-  ActionResponse, ActionWithContextResponse,
+  ActionWithContextResponse,
   IHiveMindNeuron,
   INeuronResponse,
   LocalizedWordsMatcherNeuron,
   RequestContext,
-  SimpleResponse,
+  SimpleResponse, UserInput,
 } from '@oratio/oratio';
 import { knownWords } from './ClearNeuron.words';
 import { Injectable } from '@angular/core';
@@ -18,9 +18,9 @@ export class ClearNeuron implements IHiveMindNeuron {
   constructor(private store: Store<RootState>) {
   }
 
-  process(words: string[], locale: string, context: RequestContext): Promise<INeuronResponse> {
+  process(input: UserInput, context: RequestContext): Promise<INeuronResponse> {
     return new LocalizedWordsMatcherNeuron(knownWords, '')
-      .process(words, locale, context).then(initialResponse => {
+      .process(input, context).then(initialResponse => {
         if (initialResponse instanceof SimpleResponse) {
           const action = this.createAction();
           return new ActionWithContextResponse(
