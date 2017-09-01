@@ -1,11 +1,11 @@
-import { IHiveMindNeuron, INeuronResponse, RequestContext, Silence, SimpleResponse } from '@oratio/oratio';
+import { IHiveMindNeuron, INeuronResponse, RequestContext, Silence, SimpleResponse, UserInput } from '@oratio/oratio';
 import { easterEggs } from './EasterEggs';
 import { InputOutputMatcher } from './InputOutputMatcher';
 
 export class EasterEggNeuron implements IHiveMindNeuron {
 
-  process(words: string[], locale: string, context: RequestContext): Promise<INeuronResponse> {
-    const match = InputOutputMatcher.match(words, easterEggs);
+  process(input: UserInput, context: RequestContext): Promise<INeuronResponse> {
+    const match = InputOutputMatcher.match(input.words(), easterEggs);
 
     if (match.certainty > 0.3) {
       return Promise.resolve(new SimpleResponse(

@@ -14,17 +14,19 @@ import 'rxjs/add/operator/mergeMap';
 import { AppHiveMind } from '../../oratio/AppHiveMind';
 import { RootState } from '../../reducers/index';
 import { I18nService } from '../../i18n/I18nService';
-import { UnderstoodResponse } from '@oratio/oratio';
+import { BasicLocale, Locale, UnderstoodResponse } from '@oratio/oratio';
 
 @Injectable()
 export class ChatEffects {
+
+  private locale: Locale = new BasicLocale('en', 'uk');
 
   @Effect()
   downloadCheckReport$: Observable<Action> = this.actions$
     .ofType<chat.AskQuestionAction>(chat.ASK_QUESTION)
     .map(action => action.payload)
     .mergeMap((question: string) => {
-      return this.hiveMind.mind.process(question, 'en', this.store)
+      return this.hiveMind.mind.process(question, this.locale, this.store)
         .then(answer => {
           if (answer instanceof UnderstoodResponse) {
             answer.action.call(answer.context, null);

@@ -1,15 +1,13 @@
 import { LocalizedWords } from '@oratio/oratio';
 
 export const knownWords: LocalizedWords = {
-  main: {
-    en: {
-      words: [
+  en: {
+    main:  [
         'clear',
         'rm -rf',
         'rm',
       ],
-    },
+    params: [],
+    continuation: [],
   },
-  params: {},
-  continuation: {},
 };
